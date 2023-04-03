@@ -45,4 +45,32 @@ export class RunsService {
 
     return { newId: nextId };
   }
+
+  deleteRun(id: string) {
+    const index = this.runs.findIndex((run) => run.id == id);
+    if (index == -1) {
+      throw new NotFoundException('Run not found');
+    }
+    this.runs.splice(index, 1);
+    return { deleteId: id };
+  }
+
+  updateRun(id: string, payload: Run) {
+    const currentRun = this
+    if (currentRun === null) {
+      throw new NotFoundException('Can not find Run with id:' + id);
+    }
+    const updatedRun = {
+      ...currentRun,
+      ...payload,
+    };
+
+    this.update(updatedRun);
+
+    return updatedRun;
+  }
+  update(updatedRun: Run) {
+    const index = this.runs.findIndex((item) => item.id === updatedRun.id);
+    this.runs[index] = updatedRun;
+  }
 }
