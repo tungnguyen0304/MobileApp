@@ -4,7 +4,7 @@ import { AppService } from './app.service';
 import { RunsModule } from './runs/runs.module';
 
 @Module({
-  imports: [BooksModule, RunsModule],
+  imports: [RunsModule],
   controllers: [AppController],
   providers: [AppService],
 })
