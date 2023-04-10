@@ -3,7 +3,10 @@ import {StatusBar} from 'expo-status-bar';
 import {StyleSheet, Text, View, Image, Button, TouchableOpacity} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import LoginScreen from './components/LoginScreen';
+import WelcomeScreen from './screens/WelcomeScreen';
+import DiscoverScreen from './screens/DiscoverScreen';
+import MeetScreen from './screens/MeetScreen';
+
 const Stack = createNativeStackNavigator();
 
 export default function App() {
@@ -37,114 +40,6 @@ export default function App() {
         />
       </Stack.Navigator>
     </NavigationContainer>
-  );
-};
-
-const WelcomeScreen = ({navigation}) => {
-  return (
-    <View style={styles.container}>
-      <Image 
-        style={styles.image} 
-        source={require('./assets/banner/Image01.png')}
-      />
-      <Text style={styles.welcome}>WELCOME TO LEMON APP</Text>
-      <Text style={styles.slogan1}>WE WILL PROVIDE A CONVENIENT RUNNING SPACE FOR YOU</Text>
-      <StatusBar style="auto" />
-
-      <View style={styles.containdots}>
-        <Image 
-          style={styles.dot} 
-          source={require('./assets/banner/Ellipse1.png')}
-        />
-        <Image 
-          style={styles.dot} 
-          source={require('./assets/banner/Ellipse2.png')}
-        />
-        <Image 
-          style={styles.dot} 
-          source={require('./assets/banner/Ellipse2.png')}
-        />
-      </View>
-
-      <TouchableOpacity 
-        style={styles.button}
-        onPress={() => navigation.navigate('Discover', {name: 'Discover'})}
-      >
-        <Text style={styles.buttonText}>NEXT</Text>
-      </TouchableOpacity>
-    </View>
-  );
-};
-
-const DiscoverScreen = ({navigation}) => {
-  return (
-    <View style={styles.container}>
-      <Image 
-        style={styles.image} 
-        source={require('./assets/banner/Image02.png')}
-      />
-      <Text style={styles.discover}>DISCOVER ROUTE NEAR YOU</Text>
-      <Text style={styles.slogan2}>WE WILL HELP YOU FIND A SUITABLE, FAST, SIMPLE, AND OPTIMAL ROUTE ON WHERE YOU LIVE</Text>
-      <StatusBar style="auto" />
-
-      <View style={styles.containdots}>
-        <Image 
-          style={styles.dot} 
-          source={require('./assets/banner/Ellipse2.png')}
-        />
-        <Image 
-          style={styles.dot} 
-          source={require('./assets/banner/Ellipse1.png')}
-        />
-        <Image 
-          style={styles.dot} 
-          source={require('./assets/banner/Ellipse2.png')}
-        />
-      </View>
-
-      <TouchableOpacity 
-        style={styles.button}
-        onPress={() => navigation.navigate('Meet', {name: 'Meet'})}
-      >
-        <Text style={styles.buttonText}>NEXT</Text>
-      </TouchableOpacity>
-    </View>
-  );
-};
-
-const MeetScreen = ({navigation}) => {
-  return (
-    <View style={styles.container}>
-      <Image 
-        style={styles.image} 
-        source={require('./assets/banner/Image03.png')}
-      />
-      <Text style={styles.discover}>MEET LIKE-MINDED PEOPLE</Text>
-      <Text style={styles.slogan3}>WE CREATE THE BEST OPPORTUNITIES FOR YOU TO MEET PEOPLE WITH SIMILAR INTERESTS</Text>
-      <StatusBar style="auto" />
-
-      <View style={styles.containdots}>
-        <Image 
-          style={styles.dot} 
-          source={require('./assets/banner/Ellipse2.png')}
-        />
-        <Image 
-          style={styles.dot} 
-          source={require('./assets/banner/Ellipse2.png')}
-        />
-        <Image 
-          style={styles.dot} 
-          source={require('./assets/banner/Ellipse1.png')}
-        />
-      </View>
-
-      <TouchableOpacity 
-        style={styles.button}
-        onPress={() => navigation.navigate('Login', {name: 'Login'})}
-      >
-        <Text style={styles.buttonText}>NEXT</Text>
-      </TouchableOpacity>
-    </View>
   );
 };
 
