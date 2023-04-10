@@ -3,7 +3,7 @@ import {StatusBar} from 'expo-status-bar';
 import {StyleSheet, Text, View, Image, Button, TouchableOpacity} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-
+import LoginScreen from './components/LoginScreen';
 const Stack = createNativeStackNavigator();
 
 export default function App() {
@@ -28,6 +28,12 @@ export default function App() {
           name="Meet"
           component={MeetScreen}
           options={{title: 'Meet'}}
+        />
+
+        <Stack.Screen 
+          name="Login"
+          component={LoginScreen}
+          options={{title: 'Login'}}
         />
       </Stack.Navigator>
     </NavigationContainer>
@@ -134,7 +140,7 @@ const MeetScreen = ({navigation}) => {
 
       <TouchableOpacity 
         style={styles.button}
-        onPress={() => navigation.navigate('Welcome', {name: 'Welcome'})}
+        onPress={() => navigation.navigate('Login', {name: 'Login'})}
       >
         <Text style={styles.buttonText}>NEXT</Text>
       </TouchableOpacity>
