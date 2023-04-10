@@ -1,5 +1,5 @@
-import React from "react";
 import { StatusBar } from "expo-status-bar";
+import React, {useEffect, useRef} from 'react';
 import {
   StyleSheet,
   Text,
@@ -7,16 +7,25 @@ import {
   Image,
   Button,
   TouchableOpacity,
+  Animated
 } from "react-native";
+import LottieView from 'lottie-react-native';
 
 export default WelcomeScreen = ({ navigation }) => {
-
+  const progress = useRef(new Animated.Value(0)).current;
   return (
     <View style={styles.container}>
-      <Image
+      {/* <Image
         style={styles.image}
         source={require("../assets/banner/Image01.png")}
-      />
+      /> */}
+      <View style={{height: 300, width: 300}}>
+        <LottieView
+          autoPlay
+          progress={progress}
+          source={require('../assets/lottie/man-running.json')}
+        />
+      </View>
       <Text style={styles.welcome}>WELCOME TO LEMON APP</Text>
       <Text style={styles.slogan1}>
         WE WILL PROVIDE A CONVENIENT RUNNING SPACE FOR YOU

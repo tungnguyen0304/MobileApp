@@ -1,5 +1,5 @@
-import React from "react";
 import { StatusBar } from "expo-status-bar";
+import React, {useEffect, useRef} from 'react';
 import {
   StyleSheet,
   Text,
@@ -7,14 +7,36 @@ import {
   Image,
   Button,
   TouchableOpacity,
+  Animated
 } from "react-native";
+import LottieView from 'lottie-react-native';
+
+
 export default DiscoverScreen = ({ navigation }) => {
+  const progress = useRef(new Animated.Value(0)).current;
+  // const handleLikeAnimation = () => {
+  //   Animated.timing(progress, {
+  //     toValue: 1,
+  //     duration: 3000,
+  //     useNativeDriver: true,
+  //   }).start();
+  // };
+  // useEffect(() => {
+  //   const intervalId = setInterval(() => {
+  //     handleLikeAnimation();
+  //   }, 4000);
+  // }, []);
+
   return (
     <View style={styles.container}>
-      <Image
-        style={styles.image}
-        source={require("../assets/banner/Image02.png")}
-      />
+
+      <View style={{height: 300, width: 300}}>
+        <LottieView
+          autoPlay
+          progress={progress}
+          source={require('../assets/lottie/find-people.json')}
+        />
+      </View>
       <Text style={styles.discover}>DISCOVER ROUTE NEAR YOU</Text>
       <Text style={styles.slogan2}>
         WE WILL HELP YOU FIND A SUITABLE, FAST, SIMPLE, AND OPTIMAL ROUTE ON
