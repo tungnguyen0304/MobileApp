@@ -14,13 +14,14 @@ import {
 import LottieView from "lottie-react-native";
 import { Animated } from "react-native";
 
-export default function LoginScreen() {
+export default function LoginScreen({navigation}) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
   const progress = useRef(new Animated.Value(0)).current;
   const loginHandOn = () => {
     if (username === "1" && password === "1") {
+      navigation.navigate("Main", { name: "Main" });
       Alert.alert("Success", "You can access now");
     } else {
       Alert.alert("Invalid credentials", "Tên đăng nhập: 1; Mật khẩu: 1");
@@ -52,9 +53,9 @@ export default function LoginScreen() {
           onChangeText={setPassword}
         />
       </View>
-      <View style={styles.remember}>
+      {/* <View style={styles.remember}>
         <Text>Remember login information</Text>
-      </View>
+      </View> */}
       <View style={styles.form2}>
         <TouchableOpacity style={styles.button} onPress={loginHandOn}>
           <Text style={styles.buttonText}>Login</Text>
@@ -113,7 +114,7 @@ const styles = StyleSheet.create({
   },
   form2: {
     top: 70,
-    width: "70%",
+    width: "100%",
     borderRadius: 20,
   },
 
@@ -128,14 +129,14 @@ const styles = StyleSheet.create({
   button: {
     width: "100%",
     height: 50,
-    backgroundColor: "#F8D247",
+    backgroundColor: "#18A0FB",
     borderRadius: 30,
     marginTop: 10,
     alignItems: "center",
     justifyContent: "center",
   },
   buttonText: {
-    color: "black",
+    color: "white",
     fontSize: 18,
     fontWeight: "bold",
   },
