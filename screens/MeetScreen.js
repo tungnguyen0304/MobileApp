@@ -50,7 +50,7 @@ export default MeetScreen = ({navigation}) => {
   
         <TouchableOpacity 
           style={styles.button}
-          onPress={() => navigation.navigate('Welcome', {name: 'Welcome'})}
+          onPress={() => navigation.navigate('Login', {name: 'Login'})}
         >
           <Text style={styles.buttonText}>NEXT</Text>
         </TouchableOpacity>
