@@ -20,19 +20,33 @@ export default MeetScreen = ({navigation}) => {
         <StatusBar style="auto" />
   
         <View style={styles.containdots}>
-          <Image 
-            style={styles.dot} 
-            source={require('../assets/banner/Ellipse2.png')}
+        <TouchableOpacity
+          onPress={() => navigation.navigate("Welcome", { name: "Welcome" })}
+        >
+          <Image
+            style={styles.dot}
+            source={require("../assets/banner/Ellipse2.png")}
           />
-          <Image 
-            style={styles.dot} 
-            source={require('../assets/banner/Ellipse2.png')}
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          onPress={() => navigation.navigate("Discover", { name: "Discover" })}
+        >
+          <Image
+            style={styles.dot}
+            source={require("../assets/banner/Ellipse2.png")}
           />
-          <Image 
-            style={styles.dot} 
-            source={require('../assets/banner/Ellipse1.png')}
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          onPress={() => navigation.navigate("Meet", { name: "Meet" })}
+        >
+          <Image
+            style={styles.dot}
+            source={require("../assets/banner/Ellipse1.png")}
           />
-        </View>
+        </TouchableOpacity>
+      </View>
   
         <TouchableOpacity 
           style={styles.button}
