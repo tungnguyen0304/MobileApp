@@ -1,5 +1,5 @@
-import React from "react";
 import { StatusBar } from "expo-status-bar";
+import React, {useEffect, useRef} from 'react';
 import {
   StyleSheet,
   Text,
@@ -7,14 +7,22 @@ import {
   Image,
   Button,
   TouchableOpacity,
+  Animated
 } from "react-native";
+import LottieView from 'lottie-react-native';
+
 export default MeetScreen = ({navigation}) => {
+  const progress = useRef(new Animated.Value(0)).current;
+
     return (
       <View style={styles.container}>
-        <Image 
-          style={styles.image} 
-          source={require('../assets/banner/Image03.png')}
+        <View style={{height: 300, width: 300}}>
+        <LottieView
+          autoPlay
+          progress={progress}
+          source={require('../assets/lottie/friends.json')}
         />
+      </View>
         <Text style={styles.discover}>MEET LIKE-MINDED PEOPLE</Text>
         <Text style={styles.slogan3}>WE CREATE THE BEST OPPORTUNITIES FOR YOU TO MEET PEOPLE WITH SIMILAR INTERESTS</Text>
         <StatusBar style="auto" />

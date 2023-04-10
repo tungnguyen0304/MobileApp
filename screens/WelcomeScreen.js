@@ -15,10 +15,6 @@ export default WelcomeScreen = ({ navigation }) => {
   const progress = useRef(new Animated.Value(0)).current;
   return (
     <View style={styles.container}>
-      {/* <Image
-        style={styles.image}
-        source={require("../assets/banner/Image01.png")}
-      /> */}
       <View style={{height: 300, width: 300}}>
         <LottieView
           autoPlay
