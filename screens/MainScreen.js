@@ -19,7 +19,7 @@ export default function MainScreen({ navigation }) {
   const [hasPermission, setHasPermission] = useState(null);
   const [scanned, setScanned] = useState(false);
   const [mssv, setMssv] = useState(0);
-
+  const regex = /^1[5-9] || ^2[0-2]/;
   useEffect(() => {
     const getBarCodeScannerPermissions = async () => {
       const { status } = await BarCodeScanner.requestPermissionsAsync();
@@ -32,6 +32,7 @@ export default function MainScreen({ navigation }) {
   const handleBarCodeScanned = ({ type, data }) => {
     setScanned(true);
     setMssv(data);
+    if (regex.test(mssv.toString))
     alert(`Bar code with type ${type} and data ${data} has been scanned!`);
   };
 
